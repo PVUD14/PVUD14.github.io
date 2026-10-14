@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* [CSS-1] THEME TOKENS — change --color-accent to restyle the whole site */
+@theme {
+  --color-bg: #0a0a0b;
+  --color-surface: #141416;
+  --color-surface-2: #1c1c1f;
+  --color-accent: #e11d2e;
+  --color-accent-soft: #ff4d5a;
+  --color-ink: #f4f4f5;
+  --color-mute: #a1a1aa;
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html { background: var(--color-bg); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--color-accent); color: #fff; }
+
+/* [CSS-2] Lenis smooth-scroll helpers */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* [CSS-3] Reusable bits */
+.font-telugu { font-family: "Noto Sans Telugu", "Nirmala UI", Gautami, sans-serif; }
+.font-display { font-family: var(--font-display); letter-spacing: 0.02em; }
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+.rail { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: .75rem; scrollbar-width: thin; scrollbar-color: #3a3a3f transparent; }
+.rail > * { scroll-snap-align: start; flex: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

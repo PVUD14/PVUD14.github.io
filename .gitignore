@@ -1,0 +1,5 @@
+node_modules
+dist
+.env.local
+assets-src/portrait-original.png
+assets-src/portrait-hoodie-original.png
