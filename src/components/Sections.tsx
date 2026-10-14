@@ -119,12 +119,20 @@ export function Achievements() {
         ))}
       </div>
       <div className="rail mt-6">
-        {certifications.map(c => (
-          <div key={c.name} className="w-40 bg-surface rounded-lg p-4 border border-white/5">
-            <p className="font-display text-3xl text-accent">{c.name}</p>
-            <p className="text-xs text-mute">{c.issuer}</p>
-          </div>
-        ))}
+        {certifications.map(c => {
+          const card = (
+            <>
+              <p className="font-display text-3xl text-accent">{c.name}</p>
+              <p className="text-xs text-ink/90 mt-1 leading-snug">{c.title}</p>
+              <p className="text-xs text-mute mt-2">{c.issuer} · {c.year}</p>
+              {c.href && <p className="text-xs text-accent-soft mt-2">Verify ↗</p>}
+            </>
+          )
+          const cls = 'w-52 shrink-0 bg-surface rounded-lg p-4 border border-white/5'
+          return c.href
+            ? <a key={c.name} href={c.href} target="_blank" rel="noreferrer" className={`${cls} hover:border-accent/60 transition-colors`}>{card}</a>
+            : <div key={c.name} className={cls}>{card}</div>
+        })}
       </div>
     </Section>
   )

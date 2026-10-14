@@ -23,7 +23,7 @@ export const profile = {
     'I run security programs, break things with permission, and build the platforms that make defence repeatable. Incident response, ISMS and offensive research under one roof.',
   location: 'Bangalore, India',
   originalLabel: 'A PVU DIVAKAR ORIGINAL', // [1c] opening studio card
-  email: '', // [1d] TODO: add a public contact email if you want one shown
+  email: 'pvud14@gmail.com', // [1d] public contact email (shown as an Email button in the footer)
   links: {
     linkedin: 'https://www.linkedin.com/in/p-v-u-divakar/',
     github: 'https://github.com/PVUD14',
@@ -158,7 +158,8 @@ export const projects: Project[] = [
 
 /* [3] SEASONS & EPISODES (My Journey) --------------------------------------
    Seasons are chapters, episodes are moments inside them.
-   TODO: LinkedIn blocks automated reading, so add exact employers and years here. */
+   Seasons 1 and 2 are your real career timeline (from LinkedIn). Each episode: title = role,
+   summary = employer, dates and place, tag = short label. Add roles by copying one line. */
 export interface Season {
   number: number
   title: string
@@ -169,27 +170,38 @@ export interface Season {
 export const seasons: Season[] = [
   {
     number: 1,
-    title: 'The Defender',
-    tagline: 'Running security where it counts.',
+    title: 'The Origin',
+    tagline: 'From IT operations into security monitoring and response.',
     episodes: [
-      { title: 'Incident Response', summary: 'Triage, contain, eradicate, learn. Calm under pressure.', tag: 'IR' },
-      { title: 'ISMS and ISO 27001', summary: 'Turning policy into controls that teams actually follow.', tag: 'Governance' },
-      { title: 'Detection Engineering', summary: 'SIEM, EDR and XDR tuned for signal over noise.', tag: 'SOC' },
-      { title: 'Risk Management', summary: 'Measuring exposure so leadership can decide fast.', tag: 'Risk' },
+      { title: 'Executive IT', summary: 'Hyderabad Integrated MSW Energy Solutions · Feb 2020 – Mar 2021 · Hyderabad', tag: 'IT Ops' },
+      { title: 'Security Monitoring Engineer', summary: 'Sensen · Mar 2021 – Nov 2021', tag: 'Monitoring' },
+      { title: 'Security Consultant', summary: 'Wipro · Dec 2021 – Apr 2023 · Hyderabad', tag: 'Consulting' },
+      { title: 'L2 SOC Analyst', summary: 'Futurism Technologies · Apr 2023 – Jun 2023 · Pune', tag: 'SOC' },
+      { title: 'Security Engineer', summary: 'Srijan Spectrum · Jul 2023 – Nov 2023 · Hyderabad', tag: 'Engineering' },
     ],
   },
   {
     number: 2,
+    title: 'The Defender',
+    tagline: 'Incident response, then running the security program at Xevyte.',
+    episodes: [
+      { title: 'CSIRT Engineer', summary: 'Xevyte Technologies · Nov 2023 – Mar 2025 · Bengaluru', tag: 'IR' },
+      { title: 'Information Security Manager', summary: 'Xevyte Technologies · May 2025 – Present · Bengaluru', tag: 'ISMS' },
+      { title: 'ISMS and ISO 27001', summary: 'Turning policy into controls that teams actually follow.', tag: 'Governance' },
+    ],
+  },
+  {
+    number: 3,
     title: 'The Researcher',
     tagline: 'Finding it before someone else does.',
     episodes: [
-      { title: 'OSCP and OSCP+', summary: 'Offensive certifications earned the hard way.', tag: 'Offensive' },
+      { title: 'OSCP and OSCP+', summary: 'Offensive certifications earned the hard way, Jun 2026.', tag: 'Offensive' },
       { title: 'VAPT in the Field', summary: 'Real assessments, real findings, clear remediation.', tag: 'VAPT' },
       { title: 'CVE-2026-103473', summary: 'A critical Deno command injection, disclosed responsibly.', tag: 'CVE' },
     ],
   },
   {
-    number: 3,
+    number: 4,
     title: 'The Builder',
     tagline: 'Turning field lessons into the Xefence platforms.',
     episodes: [
@@ -257,12 +269,16 @@ export const achievements = [
   },
 ]
 
-export const certifications = [
-  { name: 'CISM', issuer: 'ISACA' },
-  { name: 'OSCP', issuer: 'OffSec' },
-  { name: 'OSCP+', issuer: 'OffSec' },
-  // TODO: add ISO 27001 LA/LI, CEH, cloud certs etc. with credential links:
-  // { name: 'ISO 27001 LA', issuer: 'PECB', href: 'https://...' },
+/* [6a] Certifications (from LinkedIn). name = big label on the card, title = full name,
+   year = issue date, href = optional credential link. Newest first. */
+export const certifications: { name: string; title: string; issuer: string; year: string; href?: string }[] = [
+  { name: 'OSCP', title: 'OffSec Certified Professional', issuer: 'OffSec', year: 'Jun 2026', href: 'https://credentials.offsec.com/005729c4-4417-44cc-a34d-7e55bccaad43#acc.kCGNBeXx' },
+  { name: 'OSCP+', title: 'Offensive Security Certified Professional Plus', issuer: 'OffSec', year: 'Jun 2026' },
+  { name: 'CISM', title: 'Certified Information Security Manager', issuer: 'ISACA', year: 'Jul 2024' },
+  { name: 'SC-200', title: 'Microsoft Security Operations Analyst', issuer: 'Microsoft', year: 'Jun 2023' },
+  { name: 'SOC L1', title: 'SOC Analyst Level 1', issuer: 'Cybrary', year: 'Feb 2022' },
+  { name: 'NSE 2', title: 'Fortinet Network Security Expert Level 2: Certified Associate', issuer: 'Fortinet', year: 'Aug 2021' },
+  { name: 'NSE 1', title: 'Fortinet Network Security Expert Level 1: Certified Associate', issuer: 'Fortinet', year: 'May 2019' },
 ]
 
 /* [7] INTRO REEL ("Play Intro" highlight slides) ---------------------------- */
